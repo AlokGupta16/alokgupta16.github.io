@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alok Gupta | Data Scientist Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        :root {
+            --primary: #58a6ff; 
+            --secondary: #2ea44f; 
+            --bg-card: #161b22;
+            --text-main: #f0f6fc;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            padding: 80px 0 40px;
+            background: radial-gradient(circle at top, #1f293d 0%, #0d1117 70%);
+        }
+        .profile-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            box-shadow: 0 0 25px rgba(88, 166, 255, 0.4);
+        }
+        h1 {
+            font-size: 3rem;
+            color: var(--text-main);
+            margin-bottom: 5px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            margin: 8px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background-color: var(--primary);
+            color: #0d1117;
+            border: 2px solid var(--primary);
+        }
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary);
+            box-shadow: 0 0 20px rgba(88, 166, 255, 0.6);
+        }
+        .btn-outline {
+            border: 2px solid #30363d;
+            background-color: transparent;
+            color: #c9d1d9;
+        }
+        .btn-outline:hover {
+            border-color: var(--text-main);
+            color: var(--text-main);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+        .section-title {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin: 50px 0 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #21262d;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        .summary-card {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #30363d;
+            font-size: 1.05rem;
+            text-align: justify;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 15px;
+        }
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid #30363d;
+            border-radius: 16px;
+            padding: 30px;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(88, 166, 255, 0.15);
+        }
+        .skill-item {
+            margin-bottom: 20px;
+        }
+        .skill-name {
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        .progress-bar {
+            background-color: #21262d;
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 5px;
+        }
+        .project-tags {
+            margin: 15px 0;
+        }
+        .tag {
+            display: inline-block;
+            background-color: #1f242c;
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border: 1px solid rgba(88, 166, 255, 0.2);
+        }
+        .card h3 {
+            color: var(--text-main);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        .project-link {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            margin-top: 15px;
+            transition: color 0.2s;
+        }
+        .project-link i {
+            margin-right: 8px;
+        }
+        .project-link:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 5px;
+            bottom: 5px;
+            width: 2px;
+            background-color: #30363d;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -29px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--secondary);
+            border: 3px solid #0d1117;
+        }
+        .timeline-title {
+            font-weight: 700;
+            color: var(--text-main);
+            font-size: 1.1rem;
+        }
+        .timeline-meta {
+            font-size: 0.9rem;
+            color: #8b949e;
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+        .cert-card {
+            padding: 20px; 
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            background-color: var(--bg-card);
+            border-top: 1px solid #30363d;
+            border-right: 1px solid #30363d;
+            border-bottom: 1px solid #30363d;
+        }
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 80px;
+            border-top: 1px solid #21262d;
+            font-size: 0.95rem;
+            color: #8b949e;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO HEADER -->
+    <header>
+        <div class="profile-icon">
+            <i class="fas fa-code-branch"></i>
+        </div>
+        <h1>ALOK GUPTA</h1>
+        <div class="subtitle">Data Scientist</div>
+        <p style="color: #8b949e; max-width: 600px; margin: 0 auto 25px; font-size: 1.05rem;">
+            <i class="fas fa-map-marker-alt"></i> Sandila, Hardoi, UP | <i class="fas fa-envelope"></i> alokguptasandila9999@gmail.com
+        </p>
+        
+        <div class="social-links">
+            <a href="https://linkedin.com/in/alok-gupta-384315300" target="_blank" class="btn btn-primary"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/AlokGupta16" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- SUMMARY -->
+        <div class="section-title">👤 Professional Summary</div>
+        <div class="summary-card">
+            Performance-focused Data Scientist proficient in Python, SQL, and Advanced Machine Learning algorithms. Experienced in processing large datasets, identifying underlying consumer trends, and designing high-impact predictive models. Brings strong logical problem-solving skills, rigorous exploratory data analysis (EDA) expertise, and training from Hanumant Technologies to optimize complex data workflows and drive tangible business value.
+        </div>
+
+        <!-- SKILLS & TIMELINE -->
+        <div class="grid">
+            <!-- Skills Card -->
+            <div>
+                <div class="section-title">🛠️ Technical Skills</div>
+                <div class="card">
+                    <div class="skill-item">
+                        <div class="skill-name">Python & Core Libraries (Pandas, NumPy) <span>90%</span></div>
+                        <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">SQL & MongoDB <span>85%</span></div>
+                        <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Machine Learning & NLP <span>80%</span></div>
+                        <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Power BI, Tableau & Excel <span>85%</span></div>
+                        <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">VS Code & Google Colab <span>95%</span></div>
+                        <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Card -->
+            <div>
+                <div class="section-title">🎓 Experience & Education</div>
+                <div class="card">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-title">Data Scientist Trainee</div>
+                            <div class="timeline-meta">Hanumant Technologies Pvt. Ltd. | 2026 - Present</div>
+                            <p style="font-size: 0.95rem; color: #8b949e;">Analyzing real-world datasets, handling data cleaning, building ML pipelines, and automating business insights structures.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Bachelor of Science (B.Sc.)</div>
+                            <div class="timeline-meta">Lucknow University | Graduated: 2024</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-title">Higher Secondary (Class XII)</div>
+                            <div class="timeline-meta">Ram Bharose Inter College | 2021</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECTS -->
+        <div class="section-title">🚀 Technical Projects</div>
+        <div class="grid">
+            <!-- Project 1 -->
+            <div class="card">
+                <h3>Customer Segmentation Engine</h3>
+                <div class="project-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">K-Means</span>
+                    <span class="tag">Scikit-Learn</span>
+                </div>
+                <p style="color: #8b949e;">Built an unsupervised K-Means clustering model analyzing historical user purchasing loops and behavior patterns. Conducted in-depth EDA to boost targeted marketing precision.</p>
+                <a href="https://github.com/AlokGupta16" target="_blank" class="project-link"><i class="fab fa-github"></i> View Project Code</a>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="card">
+                <h3>Sales Performance Dashboard</h3>
+                <div class="project-tags">
+                    <span class="tag">Power BI</span>
+                    <span class="tag">Excel</span>
+                    <span class="tag">Power Query</span>
+                    <span class="tag">ETL Routines</span>
+                </div>
+                <p style="color: #8b949e;">Developed a business intelligence dashboard mapping transaction parameters and future revenue predictions. Performed automated ETL routines to streamline key KPIs.</p>
+                <a href="https://github.com/AlokGupta16" target="_blank" class="project-link"><i class="fab fa-github"></i> View Project Code</a>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="card">
+                <h3>Review Sentiment Analysis System</h3>
+                <div class="project-tags">
+                    <span class="tag">NLP</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">NLTK</span>
+                    <span class="tag">TF-IDF</span>
+                </div>
+                <p style="color: #8b949e;">Built an NLP pipeline implementing text tokenization, stop-word removal, and TF-IDF vectorization. Trained a classification model to categorize hotel reviews seamlessly.</p>
+                <a href="https://github.com/AlokGupta16" target="_blank" class="project-link"><i class="fab fa-github"></i> View Project Code</a>
+            </div>
+        </div>
+
+        <!-- CERTIFICATIONS -->
+        <div class="section-title">📜 Certifications</div>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+            <div class="cert-card">
+                <p style="font-weight: 600; color: var(--text-main);">Certified Data Science Professional</p>
+                <p style="font-size: 0.85rem; color: #8b949e;">Hanumant Technologies (2026)</p>
+            </div>
+            <div class="cert-card" style="border-left-color: var(--secondary);">
+                <p style="font-weight: 600; color: var(--text-main);">Advanced Machine Learning</p>
+                <p style="font-size: 0.85rem; color: #8b949e;">Core Data Science Foundation Certificate</p>
+            </div>
+            <div class="cert-card">
+                <p style="font-weight: 600; color: var(--text-main);">SQL for Enterprise Data Architecture</p>
+                <p style="font-size: 0.85rem; color: #8b949e;">Relational Database Analytics</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Alok Gupta Portfolio | Built with AI & Data Science © 2026</p>
+    </footer>
+
+</body>
+</html>
